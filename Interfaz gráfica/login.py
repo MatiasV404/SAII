@@ -42,6 +42,20 @@ class login(customtkinter.CTk):
         self.texto_iniciar.insert("0.0", "Iniciar sesión" * 1)
         self.texto_iniciar.configure(state = DISABLED)
 
+        #Texto Ingreso de nombre de usuario
+        self.texto_nombre = customtkinter.CTkTextbox(master = self, width = 210, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro)
+        self.texto_nombre.place(relx = 0.42, rely = 0.525) 
+        self.texto_nombre.insert("0.0", "Ingrese su nombre de usuario" * 1)
+        self.texto_nombre.configure(state = DISABLED)
+
+        #Texto Ingreso de contraseña
+        self.texto_contraseña = customtkinter.CTkTextbox(master = self, width = 210, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro)
+        self.texto_contraseña.place(relx = 0.44, rely = 0.67) 
+        self.texto_contraseña.insert("0.0", "Ingrese su contraseña" * 1)
+        self.texto_contraseña.configure(state = DISABLED)
+
         #Texto Olvidaste tu contraseña
         self.texto_olvidaste = customtkinter.CTkTextbox(master = self, width=300, height = 25, corner_radius=0, font = ('sans rerif', 12), fg_color = c_blanco,
                                                       bg_color = c_blanco, text_color = c_azul)
@@ -58,20 +72,14 @@ class login(customtkinter.CTk):
         self.signo_exclamacion.place(relx = 0.1, rely = 0.1, anchor = tkinter.NE)
 
         #Entrada correo y contraseña
-        self.correo = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = 'Correo electronico',
+        self.correo = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = '', text_color = c_negro,
                         border_color = c_negro, fg_color = c_blanco, width = 220, height = 40)
         self.correo.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
-        self.contrasenia = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = 'Contraseña',
+        self.contrasenia = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = '', text_color = c_negro,
                         border_color = c_negro, fg_color = c_blanco, width = 220, height = 40)
-        self.contrasenia.place(relx = 0.5, rely = 0.7, anchor = tkinter.CENTER)
+        self.contrasenia.place(relx = 0.5, rely = 0.75, anchor = tkinter.CENTER)
 
-        #Recordar contraseña
-        '''
-        checkbox = CTkCheckBox(frame, text = '¿Olvidaste tu contraseña?', hover_color = c_naranjo,
-                        border_color = c_negro, fg_color = c_naranjo, text_color = c_azul)
-        checkbox.place(relx = 0.5, rely = 0.7, anchor = tkinter.CENTER)
-        '''
         #Boton ingresar
         self.bt_ingresar = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
                 hover_color = c_naranjo, fg_color = c_blanco, text = 'Ingresar', height = 40, text_color = c_negro)
