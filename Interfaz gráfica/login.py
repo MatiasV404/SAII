@@ -22,6 +22,7 @@ class login(customtkinter.CTk):
         #Inicio de sesion
         self.geometry('1280x720')
         self.minsize(1280,720)
+        self.maxsize(1280,720)
         self.title('S.A.I.I')
 
         #Imagenes
