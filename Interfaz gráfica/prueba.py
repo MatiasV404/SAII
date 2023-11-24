@@ -14,6 +14,8 @@ print(ruta_actual)
 print(ruta_vista_bd)
 print(image_path)
 '''
+
+'''
 from PIL import Image
 from customtkinter import *
 
@@ -22,3 +24,4 @@ my_image = customtkinter.CTkImage(light_image=Image.open("<path to light mode im
                                   size=(30, 30))
 
 image_label = customtkinter.CTkLabel(app, image=my_image, text="")  # display image with a CTkLabel
+'''
