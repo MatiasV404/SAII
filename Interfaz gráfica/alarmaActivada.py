@@ -1,9 +1,9 @@
-from customtkinter import *
-from tkinter import PhotoImage
-import customtkinter
 import os
-import tkinter
 from PIL import Image
+import customtkinter
+from customtkinter import *
+import tkinter
+from tkinter import PhotoImage
 
 class alarmaActivada(customtkinter.CTk):
     def __init__(self):
@@ -13,11 +13,6 @@ class alarmaActivada(customtkinter.CTk):
 
         c_blanco = '#FFFFFF'
         c_negro = '#010101'
-        c_morado = '#7f5aF0'
-        c_verde = '#2cb67d'
-        c_calipso = '#69f9ec'
-        c_gris_oscuro = '#424949'
-        c_azul = '#0000FF'
         c_gris = '#979A9A'
 
         #Inicio de sesion
