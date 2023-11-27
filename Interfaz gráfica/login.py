@@ -16,8 +16,9 @@ class login(customtkinter.CTk):
         c_morado = '#7f5aF0'
         c_verde = '#2cb67d'
         c_calipso = '#69f9ec'
-        c_naranjo = '#FF8000'
+        c_gris_oscuro = '#424949'
         c_azul = '#0000FF'
+        c_gris = '#979A9A'
 
         #Inicio de sesion
         self.geometry('1280x720')
@@ -82,17 +83,17 @@ class login(customtkinter.CTk):
 
         #Boton ingresar
         self.bt_ingresar = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = c_blanco, text = 'Ingresar', height = 40, text_color = c_negro)
+                hover_color = c_gris, fg_color = c_blanco, text = 'Ingresar', height = 40, text_color = c_negro)
         self.bt_ingresar.place(relx = 0.5, rely = 0.9, anchor = tkinter.CENTER)
 
         #Boton registrar usuario
         self.bt_registrar = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = c_blanco, text = 'registrar usuario', height = 40, text_color = c_negro)
+                hover_color = c_gris, fg_color = c_blanco, text = 'registrar usuario', height = 40, text_color = c_negro)
         self.bt_registrar.place(relx = 0.9, rely = 0.9, anchor = tkinter.CENTER)
 
         #ComboBox Idioma
-        self.cb_idioma = customtkinter.CTkComboBox(self.frame, values=["Español", "Inglés"], border_color = c_negro, fg_color = c_blanco, button_color = c_negro, button_hover_color = c_naranjo,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_naranjo, dropdown_text_color = c_negro)
+        self.cb_idioma = customtkinter.CTkComboBox(self.frame, values=["Español", "Inglés"], border_color = c_gris_oscuro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, bg_color = c_blanco)
         self.cb_idioma.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
 

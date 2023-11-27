@@ -16,8 +16,9 @@ class configuracion(customtkinter.CTk):
         c_morado = '#7f5aF0'
         c_verde = '#2cb67d'
         c_calipso = '#69f9ec'
-        c_naranjo = '#FF8000'
+        c_gris_oscuro = '#424949'
         c_azul = '#0000FF'
+        c_gris = '#979A9A'
 
         #Ajustar sistema
         self.geometry('1280x720')
@@ -74,53 +75,53 @@ class configuracion(customtkinter.CTk):
         
         #Boton Probar sonido
         self.bt_probar_sonido = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Probar sonido', height = 20, width = 200, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Probar sonido', height = 20, width = 200, text_color = c_negro)
         self.bt_probar_sonido.place(relx = 0.15, rely = 0.3, anchor = tkinter.CENTER)
 
         #Boton Configurar parpadeo LED
         self.bt_configurar_parpadeo = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Configurar parpadeo LED', height = 20, width = 200, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Configurar parpadeo LED', height = 20, width = 200, text_color = c_negro)
         self.bt_configurar_parpadeo.place(relx = 0.5, rely = 0.3, anchor = tkinter.CENTER)
 
         #Boton Volver
         self.bt_volver = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Volver', height = 30, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Volver', height = 30, text_color = c_negro)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
         #Boton Guardar cambios
         self.bt_guardar_cambios = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 15), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Guardar cambios', height = 60, width = 180, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Guardar cambios', height = 60, width = 180, text_color = c_negro)
         self.bt_guardar_cambios.place(relx = 0.5, rely = 0.9, anchor = tkinter.CENTER)
 
         #Boton Modificar PIN de seguridad
         self.bt_modificar_pin = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Modificar PIN de seguridad', height = 20, width = 200, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Modificar PIN de seguridad', height = 20, width = 200, text_color = c_negro)
         self.bt_modificar_pin.place(relx = 0.5, rely = 0.7, anchor = tkinter.CENTER)
 
         #Boton Restablecer ajustes de fábrica
         self.bt_restablecer_ajustes = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = 'transparent', text = 'Restablecer ajustes de fábrica', height = 20, width = 200, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Restablecer ajustes de fábrica', height = 20, width = 200, text_color = c_negro)
         self.bt_restablecer_ajustes.place(relx = 0.85, rely = 0.7, anchor = tkinter.CENTER)
 
         #ComboBox Volumen buzzers
-        self.cb_volumen_buzzers = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_negro, button_hover_color = c_naranjo,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_naranjo, dropdown_text_color = c_negro, width = 50)
+        self.cb_volumen_buzzers = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
         self.cb_volumen_buzzers.place(relx = 0.2, rely = 0.5, anchor = tkinter.CENTER)
 
         #ComboBox Duracion de alarma
-        self.cb_duracion_alarma = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_negro, button_hover_color = c_naranjo,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_naranjo, dropdown_text_color = c_negro, width = 50)
+        self.cb_duracion_alarma = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
         self.cb_duracion_alarma.place(relx = 0.2, rely = 0.7, anchor = tkinter.CENTER)
 
         #ComboBox Fuente de las letras
-        self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_negro, button_hover_color = c_naranjo,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_naranjo, dropdown_text_color = c_negro, width = 55)
+        self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 55)
         self.cb_fuente_letras.place(relx = 0.55, rely = 0.5, anchor = tkinter.CENTER)
 
         #SwitchButton Sistema de sensores
         self.switch_var = customtkinter.StringVar(value="on")
         self.sw_sistema_sensores = customtkinter.CTkSwitch(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, text = '',
-                                                    variable = self.switch_var, text_color = c_negro, fg_color = c_naranjo, onvalue="on", offvalue="off")
+                                                    variable = self.switch_var, text_color = c_negro, fg_color = c_gris, onvalue="on", offvalue="off")
         self.sw_sistema_sensores.place(relx = 0.93, rely = 0.3, anchor = tkinter.CENTER)
 
 configuracion = configuracion()

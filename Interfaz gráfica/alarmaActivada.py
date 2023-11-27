@@ -16,8 +16,9 @@ class alarmaActivada(customtkinter.CTk):
         c_morado = '#7f5aF0'
         c_verde = '#2cb67d'
         c_calipso = '#69f9ec'
-        c_naranjo = '#FF8000'
+        c_gris_oscuro = '#424949'
         c_azul = '#0000FF'
+        c_gris = '#979A9A'
 
         #Inicio de sesion
         self.geometry('1280x720')
@@ -49,7 +50,7 @@ class alarmaActivada(customtkinter.CTk):
 
         #Boton detener
         self.bt_detener = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                hover_color = c_naranjo, fg_color = c_blanco, text = 'Detener', height = 60, text_color = c_negro)
+                hover_color = c_gris, fg_color = c_blanco, text = 'Detener', height = 60, text_color = c_negro)
         self.bt_detener.place(relx = 0.57, rely = 0.8, anchor = tkinter.NE)
 
 alarmaActivada = alarmaActivada()
