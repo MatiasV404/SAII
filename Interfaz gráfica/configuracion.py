@@ -40,32 +40,45 @@ class configuracion(customtkinter.CTk):
         self.texto_ajustar.place(relx = 0.3, rely = 0.05) 
 
         #Texto Volúmen buzzers
-        self.texto_volumen = customtkinter.CTkTextbox(master = self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_volumen = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Volúmen buzzers", anchor = CENTER)
         self.texto_volumen.place(relx = 0.075, rely = 0.475) 
-        self.texto_volumen.insert("0.0", "Volúmen buzzers" * 1)
-        self.texto_volumen.configure(state = DISABLED)
+
+        #ComboBox Volumen buzzers
+        self.cb_volumen_buzzers = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
+        self.cb_volumen_buzzers.place(relx = 0.2, rely = 0.49)
 
         #Texto Duración de alarma
-        self.texto_duracion = customtkinter.CTkTextbox(master = self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_duracion = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Duración de alarma", anchor = CENTER)
         self.texto_duracion.place(relx = 0.075, rely = 0.675) 
-        self.texto_duracion.insert("0.0", "Duración alarma" * 1)
-        self.texto_duracion.configure(state = DISABLED)
+
+        #ComboBox Duracion de alarma
+        self.cb_duracion_alarma = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
+        self.cb_duracion_alarma.place(relx = 0.2, rely = 0.69)
 
         #Texto Fuentes de letras
-        self.texto_fuente = customtkinter.CTkTextbox(master = self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_fuente = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = " Fuente de letras", anchor = CENTER)
         self.texto_fuente.place(relx = 0.425, rely = 0.475) 
-        self.texto_fuente.insert("0.0", "Fuentes de letras" * 1)
-        self.texto_fuente.configure(state = DISABLED)
+
+        #ComboBox Fuente de las letras
+        self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
+                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 55)
+        self.cb_fuente_letras.place(relx = 0.55, rely = 0.49)
 
         #Texto Sistema de sensores
-        self.texto_sensores = customtkinter.CTkTextbox(master = self, width = 150, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_sensores = customtkinter.CTkLabel(self, width = 150, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Sistema de sensores", anchor = CENTER)
         self.texto_sensores.place(relx = 0.760, rely = 0.275) 
-        self.texto_sensores.insert("0.0", "Sistema de sensores" * 1)
-        self.texto_sensores.configure(state = DISABLED)
+
+        #SwitchButton Sistema de sensores
+        self.switch_var = customtkinter.StringVar(value="on")
+        self.sw_sistema_sensores = customtkinter.CTkSwitch(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, text = '',
+                                                    variable = self.switch_var, text_color = c_negro, fg_color = c_gris, onvalue="on", offvalue="off")
+        self.sw_sistema_sensores.place(relx = 0.9, rely = 0.295)
         
         #Boton Probar sonido
         self.bt_probar_sonido = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
@@ -96,27 +109,6 @@ class configuracion(customtkinter.CTk):
         self.bt_restablecer_ajustes = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
                 hover_color = c_gris, fg_color = 'transparent', text = 'Restablecer ajustes de fábrica', height = 20, width = 200, text_color = c_negro)
         self.bt_restablecer_ajustes.place(relx = 0.85, rely = 0.7, anchor = tkinter.CENTER)
-
-        #ComboBox Volumen buzzers
-        self.cb_volumen_buzzers = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
-        self.cb_volumen_buzzers.place(relx = 0.2, rely = 0.5, anchor = tkinter.CENTER)
-
-        #ComboBox Duracion de alarma
-        self.cb_duracion_alarma = customtkinter.CTkComboBox(self.frame, values=["1", "2", "3"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 50)
-        self.cb_duracion_alarma.place(relx = 0.2, rely = 0.7, anchor = tkinter.CENTER)
-
-        #ComboBox Fuente de las letras
-        self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
-                                                    text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 55)
-        self.cb_fuente_letras.place(relx = 0.55, rely = 0.5, anchor = tkinter.CENTER)
-
-        #SwitchButton Sistema de sensores
-        self.switch_var = customtkinter.StringVar(value="on")
-        self.sw_sistema_sensores = customtkinter.CTkSwitch(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, text = '',
-                                                    variable = self.switch_var, text_color = c_negro, fg_color = c_gris, onvalue="on", offvalue="off")
-        self.sw_sistema_sensores.place(relx = 0.93, rely = 0.3, anchor = tkinter.CENTER)
 
 configuracion = configuracion()
 configuracion.mainloop()

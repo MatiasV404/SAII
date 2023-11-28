@@ -30,36 +30,29 @@ class login(customtkinter.CTk):
         self.frame = CTkFrame(self, fg_color = c_blanco)
         self.frame.grid(column = 3, row = 3, sticky = 'nsew')
 
+        #Columnas y filas
         self.columnconfigure(3, weight = 5)
         self.rowconfigure(3, weight = 5)
         
         #Texto Iniciar sesion
-        self.texto_iniciar = customtkinter.CTkTextbox(master = self, width=600, height = 100, corner_radius=0, font = ('sans rerif', 100), fg_color = c_blanco,
-                                                      text_color = c_negro)
+        self.texto_iniciar = customtkinter.CTkLabel(master = self, width=600, height = 100, corner_radius=0, font = ('sans rerif', 100), fg_color = c_blanco,
+                                                      text_color = c_negro, text = "Iniciar sesion")
         self.texto_iniciar.place(relx = 0.3, rely = 0.05) 
-        self.texto_iniciar.insert("0.0", "Iniciar sesión" * 1)
-        self.texto_iniciar.configure(state = DISABLED)
 
         #Texto Ingreso de nombre de usuario
-        self.texto_nombre = customtkinter.CTkTextbox(master = self, width = 210, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_nombre = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Ingrese su nombre de usuario")
         self.texto_nombre.place(relx = 0.42, rely = 0.525) 
-        self.texto_nombre.insert("0.0", "Ingrese su nombre de usuario" * 1)
-        self.texto_nombre.configure(state = DISABLED)
 
         #Texto Ingreso de contraseña
-        self.texto_contraseña = customtkinter.CTkTextbox(master = self, width = 210, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro)
-        self.texto_contraseña.place(relx = 0.44, rely = 0.67) 
-        self.texto_contraseña.insert("0.0", "Ingrese su contraseña" * 1)
-        self.texto_contraseña.configure(state = DISABLED)
+        self.texto_contraseña = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Ingrese su contraseña")
+        self.texto_contraseña.place(relx = 0.42, rely = 0.67) 
 
         #Texto Olvidaste tu contraseña
-        self.texto_olvidaste = customtkinter.CTkTextbox(master = self, width=300, height = 25, corner_radius=0, font = ('sans rerif', 12), fg_color = c_blanco,
-                                                      bg_color = c_blanco, text_color = c_azul)
-        self.texto_olvidaste.place(relx = 0.44, rely = 0.8) 
-        self.texto_olvidaste.insert("0.0", "¿Olvidaste tu contraseña?" * 1)
-        self.texto_olvidaste.configure(state = DISABLED)
+        self.texto_olvidaste = customtkinter.CTkLabel(master = self, width=200, height = 25, corner_radius=0, font = ('sans rerif', 12), fg_color = c_blanco,
+                                                      bg_color = c_blanco, text_color = c_azul, text = "¿Olvidaste tu contraseña")
+        self.texto_olvidaste.place(relx = 0.42, rely = 0.8) 
 
         #Logo y posicion
         self.logo = customtkinter.CTkLabel(self, image = self.logo_llama, text = '', fg_color = c_blanco)

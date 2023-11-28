@@ -21,24 +21,25 @@ class alarmaActivada(customtkinter.CTk):
         self.maxsize(1280,720)
         self.config(bg = c_blanco)
         self.title('S.A.I.I')
-        
-        #Texto Alarma activada
-        self.alarma_activada = customtkinter.CTkTextbox(self, width=650, height = 10, font = ('sans rerif', 75), fg_color = c_blanco,
-                                                        bg_color = c_blanco, text_color = c_negro)
-        self.alarma_activada.place(relx = 0.3, rely = 0.1) 
-        self.alarma_activada.insert("0.0", "¡Alarma Activada!" * 1)
-        self.alarma_activada.configure(state = DISABLED)
-        
-        #Imagenes
-        self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (200, 150))
-
-        self.frame = CTkFrame(self, fg_color = c_blanco)
-        self.frame.grid(column = 1, row = 1, sticky = 'nsew')
 
         #Cantidad de columnas y filas
         self.columnconfigure(3, weight = 5)
         self.rowconfigure(3, weight = 5)
 
+        #Imagenes
+        self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (100, 50))
+        self.frame = CTkFrame(self, fg_color = c_blanco)
+        self.frame.grid(column = 3, row = 3, sticky = 'nsew')
+        
+        #Texto Alarma activada
+        self.alarma_activada = customtkinter.CTkLabel(self, width=650, height = 10, font = ('sans rerif', 75), fg_color = c_blanco,
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Alarma activada")
+        self.alarma_activada.place(relx = 0.25, rely = 0.1) 
+
+        #Signo de exclamacion y posicion
+        self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
+        self.signo_exclamacion.place(relx = 0.3, rely = 0.5, anchor = tkinter.CENTER)
+        
         #Signo de exclamacion y posicion
         self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
         self.signo_exclamacion.place(relx = 0.6, rely = 0.4, anchor = tkinter.NE)

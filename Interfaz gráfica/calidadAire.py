@@ -49,7 +49,7 @@ class calidadAire(customtkinter.CTk):
 
         #Texto Humo
         self.texto_humo = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, 
-                                                 bg_color = c_blanco, text_color = c_negro, text = "Humo", anchor = NW)
+                                                 bg_color = c_blanco, text_color = c_negro, text = "Humo", anchor = SW)
         self.texto_humo.place(relx = 0.45, rely = 0.4) 
 
         #Textbox Valor Benceno
@@ -61,7 +61,7 @@ class calidadAire(customtkinter.CTk):
 
         #Texto Benceno
         self.texto_benceno = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco,
-                                                    bg_color = c_blanco, text_color = c_negro, text = "Benceno", anchor = NW)
+                                                    bg_color = c_blanco, text_color = c_negro, text = "Benceno", anchor = SW)
         self.texto_benceno.place(relx = 0.45, rely = 0.47) 
 
         #Textbox Valor Amoniaco (NH3)
@@ -72,7 +72,8 @@ class calidadAire(customtkinter.CTk):
         self.textbox_valor_amoniaco.configure(state = DISABLED)
 
         #Texto Amoniaco
-        self.texto_amoniaco = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "NH3", anchor = NW)
+        self.texto_amoniaco = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "NH3", 
+                                                     anchor = SW)
         self.texto_amoniaco.place(relx = 0.45, rely = 0.54) 
 
         #Textbox Valor Dioxido de Carbono (CO2)
@@ -83,7 +84,8 @@ class calidadAire(customtkinter.CTk):
         self.textbox_valor_dioxido.configure(state = DISABLED)
 
         #Texto Dioxido de Carbono (CO2)
-        self.texto_dioxido = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "CO2", anchor = NW)
+        self.texto_dioxido = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "CO2", 
+                                                    anchor = SW)
         self.texto_dioxido.place(relx = 0.45, rely = 0.61) 
 
         #Textbox Valor NOx 
@@ -94,7 +96,8 @@ class calidadAire(customtkinter.CTk):
         self.textbox_valor_nox.configure(state = DISABLED)
 
         #Texto NOX
-        self.texto_nox = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "NOX", anchor = NW)
+        self.texto_nox = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "NOX", 
+                                                anchor = SW)
         self.texto_nox.place(relx = 0.45, rely = 0.68) 
 
         #Textbox Valor Alcohol 
@@ -105,7 +108,8 @@ class calidadAire(customtkinter.CTk):
         self.textbox_valor_alcohol.configure(state = DISABLED)
 
         #Texto Alcohol
-        self.texto_alcohol = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "Alcohol", anchor = NW)
+        self.texto_alcohol = customtkinter.CTkLabel(self, width=80, height = 30, corner_radius = 0, font = ('sans rerif', 20), fg_color = c_blanco, text_color = c_negro, text = "Alcohol", 
+                                                    anchor = SW)
         self.texto_alcohol.place(relx = 0.45, rely = 0.75) 
 
         #Boton Volver
