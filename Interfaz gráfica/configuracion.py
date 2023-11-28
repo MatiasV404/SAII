@@ -35,11 +35,9 @@ class configuracion(customtkinter.CTk):
         self.signo_exclamacion.place(relx = 0.1, rely = 0.1, anchor = tkinter.NE)
         
         #Texto Ajustar sistema
-        self.texto_ajustar = customtkinter.CTkTextbox(master = self, width = 600, height = 100, corner_radius=0, font = ('sans rerif', 75), fg_color = c_blanco,
-                                                    text_color = c_negro)
+        self.texto_ajustar = customtkinter.CTkLabel(self, width = 600, height = 100, font = ('sans rerif', 75), 
+                                                    fg_color = c_blanco, bg_color = c_blanco, text = "Ajustar sistema", text_color = c_negro)
         self.texto_ajustar.place(relx = 0.3, rely = 0.05) 
-        self.texto_ajustar.insert("0.0", "Ajustar sistema" * 1)
-        self.texto_ajustar.configure(state = DISABLED)
 
         #Texto Volúmen buzzers
         self.texto_volumen = customtkinter.CTkTextbox(master = self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,

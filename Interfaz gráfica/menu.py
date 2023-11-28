@@ -31,8 +31,8 @@ class menu(customtkinter.CTk):
         self.rowconfigure(3, weight = 5)
 
         #Texto Menú
-        self.texto_menu = customtkinter.CTkTextbox(master = self, width=200, height = 100, corner_radius=0, font = ('sans rerif', 75), fg_color = c_blanco,
-                                                      text_color = c_negro)
+        self.texto_menu = customtkinter.CTkTextbox(master = self, width=200, height = 100, corner_radius=0, font = ('sans rerif', 75), 
+                                                   fg_color = c_blanco, bg_color = c_blanco, text_color = c_negro)
         self.texto_menu.place(relx = 0.43, rely = 0.05) 
         self.texto_menu.insert("0.0", "Menú" * 1)
         self.texto_menu.configure(state = DISABLED)
