@@ -26,7 +26,6 @@ class login(customtkinter.CTk):
         #Imagenes
         self.logo_llama = customtkinter.CTkImage(Image.open(os.path.join(image_path,'llama.png')), size = (200, 200))
         self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (100, 50))
-
         self.frame = CTkFrame(self, fg_color = c_blanco)
         self.frame.grid(column = 3, row = 3, sticky = 'nsew')
 
@@ -85,7 +84,6 @@ class login(customtkinter.CTk):
         self.cb_idioma = customtkinter.CTkComboBox(self.frame, values=["Español", "Inglés"], border_color = c_gris_oscuro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
                                                     text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, bg_color = c_blanco)
         self.cb_idioma.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
-
 
 login = login()
 login.mainloop()
