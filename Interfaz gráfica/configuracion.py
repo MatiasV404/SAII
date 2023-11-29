@@ -111,4 +111,6 @@ class configuracion(customtkinter.CTk):
         self.bt_restablecer_ajustes.place(relx = 0.85, rely = 0.7, anchor = tkinter.CENTER)
 
 configuracion = configuracion()
-configuracion.mainloop()
+def mostrarConfiguracion():
+        configuracion.mainloop()
+mostrarConfiguracion()

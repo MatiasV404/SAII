@@ -122,4 +122,7 @@ class calidadAire(customtkinter.CTk):
         self.signo_exclamacion.place(relx = 0.1, rely = 0.1, anchor = tkinter.NE)
 
 calidadAire = calidadAire()
-calidadAire.mainloop()
+
+def mostrarCalidadAire():
+        calidadAire.mainloop()
+#mostrarCalidadAire()

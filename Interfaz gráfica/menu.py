@@ -71,4 +71,7 @@ class menu(customtkinter.CTk):
         self.bt_cerrar.place(relx = 0.9, rely = 0.15, anchor = tkinter.CENTER)
 
 menu = menu()
-menu.mainloop()
+
+def mostrarMenu():
+        menu.mainloop()
+mostrarMenu()
