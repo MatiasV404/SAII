@@ -22,11 +22,12 @@ class configuracion(customtkinter.CTk):
         self.maxsize(1280,720)
         self.title('S.A.I.I')
 
+        #Imagenes
         self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (100, 50))
-
         self.frame = CTkFrame(self, fg_color = c_blanco)
         self.frame.grid(column = 3, row = 3, sticky = 'nsew')
 
+        #Cantidad de columnas y filas
         self.columnconfigure(3, weight = 5)
         self.rowconfigure(3, weight = 5)
         

@@ -27,27 +27,26 @@ class alarmaActivada(customtkinter.CTk):
         self.rowconfigure(3, weight = 5)
 
         #Imagenes
-        self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (100, 50))
+        self.signo_exclamacion = customtkinter.CTkImage(Image.open(os.path.join(image_path,'signoExclamacion.png')), size = (300, 150))
         self.frame = CTkFrame(self, fg_color = c_blanco)
         self.frame.grid(column = 3, row = 3, sticky = 'nsew')
         
         #Texto Alarma activada
-        self.alarma_activada = customtkinter.CTkLabel(self, width=650, height = 10, font = ('sans rerif', 75), fg_color = c_blanco,
-                                                        bg_color = c_blanco, text_color = c_negro, text = "Alarma activada")
+        self.alarma_activada = customtkinter.CTkLabel(self, width=650, height = 10, font = ('sans rerif', 90), fg_color = c_blanco,
+                                                        bg_color = c_blanco, text_color = c_negro, text = "¡Alarma activada!")
         self.alarma_activada.place(relx = 0.25, rely = 0.1) 
 
         #Signo de exclamacion y posicion
         self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
-        self.signo_exclamacion.place(relx = 0.3, rely = 0.5, anchor = tkinter.CENTER)
-        
-        #Signo de exclamacion y posicion
-        self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
-        self.signo_exclamacion.place(relx = 0.6, rely = 0.4, anchor = tkinter.NE)
+        self.signo_exclamacion.place(relx = 0.52, rely = 0.5, anchor = tkinter.CENTER)
 
         #Boton detener
-        self.bt_detener = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
+        self.bt_detener = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 20), border_color = c_negro, border_width = 3,
                 hover_color = c_gris, fg_color = c_blanco, text = 'Detener', height = 60, text_color = c_negro)
         self.bt_detener.place(relx = 0.57, rely = 0.8, anchor = tkinter.NE)
 
 alarmaActivada = alarmaActivada()
-alarmaActivada.mainloop()
+
+def mostarAlarmaActivada():
+        alarmaActivada.mainloop()
+mostarAlarmaActivada()

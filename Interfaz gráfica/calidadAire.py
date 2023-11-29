@@ -125,4 +125,4 @@ calidadAire = calidadAire()
 
 def mostrarCalidadAire():
         calidadAire.mainloop()
-#mostrarCalidadAire()
+mostrarCalidadAire()
