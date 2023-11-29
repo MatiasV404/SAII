@@ -4,6 +4,11 @@ import customtkinter
 from customtkinter import *
 import tkinter
 from tkinter import PhotoImage
+import sys
+import subprocess
+
+#Rutas de acceso
+menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 class configuracion(customtkinter.CTk):
         def __init__(self):
@@ -42,7 +47,7 @@ class configuracion(customtkinter.CTk):
 
                 #Texto Volúmen buzzers
                 self.texto_volumen = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Volúmen buzzers", anchor = CENTER)
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Volúmen buzzers", anchor = CENTER)
                 self.texto_volumen.place(relx = 0.075, rely = 0.475) 
 
                 #ComboBox Volumen buzzers
@@ -52,7 +57,7 @@ class configuracion(customtkinter.CTk):
 
                 #Texto Duración de alarma
                 self.texto_duracion = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Duración de alarma", anchor = CENTER)
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Duración de alarma", anchor = CENTER)
                 self.texto_duracion.place(relx = 0.075, rely = 0.675) 
 
                 #ComboBox Duracion de alarma
@@ -62,7 +67,7 @@ class configuracion(customtkinter.CTk):
 
                 #Texto Fuentes de letras
                 self.texto_fuente = customtkinter.CTkLabel(self, width = 130, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = " Fuente de letras", anchor = CENTER)
+                                                        bg_color = c_blanco, text_color = c_negro, text = " Fuente de letras", anchor = CENTER)
                 self.texto_fuente.place(relx = 0.425, rely = 0.475) 
 
                 #ComboBox Fuente de las letras
@@ -72,7 +77,7 @@ class configuracion(customtkinter.CTk):
 
                 #Texto Sistema de sensores
                 self.texto_sensores = customtkinter.CTkLabel(self, width = 150, height = 50, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Sistema de sensores", anchor = CENTER)
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Sistema de sensores", anchor = CENTER)
                 self.texto_sensores.place(relx = 0.760, rely = 0.275) 
 
                 #SwitchButton Sistema de sensores
@@ -93,7 +98,7 @@ class configuracion(customtkinter.CTk):
 
                 #Boton Volver
                 self.bt_volver = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                        hover_color = c_gris, fg_color = 'transparent', text = 'Volver', height = 30, text_color = c_negro)
+                        hover_color = c_gris, fg_color = 'transparent', text = 'Volver', height = 30, text_color = c_negro, command = self.accesoMenu)
                 self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
                 #Boton Guardar cambios
@@ -111,7 +116,18 @@ class configuracion(customtkinter.CTk):
                         hover_color = c_gris, fg_color = 'transparent', text = 'Restablecer ajustes de fábrica', height = 20, width = 200, text_color = c_negro)
                 self.bt_restablecer_ajustes.place(relx = 0.85, rely = 0.7, anchor = tkinter.CENTER)
 
+        #Funcion que accede de configuracion a menu
+        def accesoMenu(self):
+                ruta_acceso = os.path.join(menu_ruta, "menu.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
 configuracion = configuracion()
+
 def mostrarConfiguracion():
         configuracion.mainloop()
 mostrarConfiguracion()

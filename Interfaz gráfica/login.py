@@ -7,6 +7,7 @@ from tkinter import PhotoImage
 import sys
 import subprocess
 
+#Rutas de acceso
 menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 class login(customtkinter.CTk):
@@ -39,17 +40,17 @@ class login(customtkinter.CTk):
                 
                 #Texto Iniciar sesion
                 self.texto_iniciar = customtkinter.CTkLabel(master = self, width=600, height = 100, corner_radius=0, font = ('sans rerif', 100), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Iniciar sesión")
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Iniciar sesión")
                 self.texto_iniciar.place(relx = 0.3, rely = 0.05) 
 
                 #Texto Ingreso de nombre de usuario
                 self.texto_nombre = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Ingrese su nombre de usuario")
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Ingrese su nombre de usuario")
                 self.texto_nombre.place(relx = 0.345, rely = 0.525) 
 
                 #Texto Ingreso de contraseña
                 self.texto_contraseña = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Ingrese su contraseña")
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Ingrese su contraseña")
                 self.texto_contraseña.place(relx = 0.325, rely = 0.67) 
 
                 #Texto Olvidaste tu contraseña
@@ -89,6 +90,7 @@ class login(customtkinter.CTk):
                                                         text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, bg_color = c_blanco)
                 self.cb_idioma.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
+        #Funcion que accede a Menu luego de loggearse
         def accesoMenu(self):
                 ruta_acceso = os.path.join(menu_ruta, "menu.py")
                 self.withdraw()

@@ -7,8 +7,11 @@ from tkinter import PhotoImage
 import sys
 import subprocess
 
+#Rutas de acceso
 configuracion_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 contactosEmergencia_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+histprialActividad_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+calidadAire_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 class menu(customtkinter.CTk):
         def __init__(self):
@@ -57,12 +60,14 @@ class menu(customtkinter.CTk):
 
                 #Boton Historial de actividad
                 self.bt_historial = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 20), border_color = c_negro, border_width = 3,
-                        hover_color = c_gris, fg_color = c_blanco, text = 'Historial de actividad', height = 80, width = 250, text_color = c_negro)
+                        hover_color = c_gris, fg_color = c_blanco, text = 'Historial de actividad', height = 80, width = 250, text_color = c_negro,
+                        command = self.accesoHistorialActividad)
                 self.bt_historial.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
                 #Boton Calidad del aire
                 self.bt_caldiad = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 20), border_color = c_negro, border_width = 3,
-                        hover_color = c_gris, fg_color = c_blanco, text = 'Calidad del aire', height = 80, width = 250, text_color = c_negro)
+                        hover_color = c_gris, fg_color = c_blanco, text = 'Calidad del aire', height = 80, width = 250, text_color = c_negro,
+                        command = self.accesoCalidadAire)
                 self.bt_caldiad.place(relx = 0.5, rely = 0.75, anchor = tkinter.CENTER)
 
                 #Boton Perfil
@@ -75,6 +80,7 @@ class menu(customtkinter.CTk):
                         hover_color = c_gris, fg_color = c_blanco, text = 'Cerrar sesión', height = 20, width = 100, text_color = c_negro)
                 self.bt_cerrar.place(relx = 0.9, rely = 0.15, anchor = tkinter.CENTER)
 
+        #Funcion que accede de Menu a Configuración
         def accesoConfiguracion(self):
                 ruta_acceso = os.path.join(configuracion_ruta, "configuracion.py")
                 self.withdraw()
@@ -84,8 +90,29 @@ class menu(customtkinter.CTk):
                 except Exception as e:
                         print(f"Error al ejecutar el otro script: {e}")
 
+        #Funcion que accede de Menu a Contactos de emergencia
         def accesoContactosEmergencia(self):
                 ruta_acceso = os.path.join(configuracion_ruta, "contactosEmergencia.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+        #Funcion que accede de Menu a Historial de actividad
+        def accesoHistorialActividad(self):
+                ruta_acceso = os.path.join(configuracion_ruta, "historialActividad.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+        #Funcion que accede de Menu a Calidad del aire
+        def accesoCalidadAire(self):
+                ruta_acceso = os.path.join(configuracion_ruta, "calidadAire.py")
                 self.withdraw()
                 try:
                         subprocess.run([sys.executable, ruta_acceso])
