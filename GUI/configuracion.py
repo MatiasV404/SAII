@@ -130,4 +130,5 @@ configuracion = configuracion()
 
 def mostrarConfiguracion():
         configuracion.mainloop()
+        
 mostrarConfiguracion()

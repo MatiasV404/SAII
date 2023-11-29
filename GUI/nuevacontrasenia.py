@@ -4,7 +4,7 @@ import customtkinter
 from customtkinter import *
 import tkinter
 
-class perfil(customtkinter.CTk):
+class nuevaContrasenia(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
@@ -43,21 +43,36 @@ class perfil(customtkinter.CTk):
                 hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
-         #Texto respuseta
-        self.texto_nombre = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro, text = "Responda la pregunta escogida")
-        self.texto_nombre.place(relx = 0.42, rely = 0.42) 
+         #Texto ingrese
+        self.texto_primerapass = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Ingrese su nueva contraseña")
+        self.texto_primerapass.place(relx = 0.42, rely = 0.33) 
 
 
-        #Entrada respuesta
-        self.user = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = '', text_color = c_negro,
+        #Entrada primera
+        self.primerapass = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = '', text_color = c_negro,
                         border_color = c_negro, fg_color = c_blanco, width = 360, height = 40)
-        self.user.place(relx = 0.5, rely = 0.5, anchor = tkinter.CENTER)
+        self.primerapass.place(relx = 0.5, rely = 0.4, anchor = tkinter.CENTER)
+
+         #Texto confirmar
+        self.txtconfirmar = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
+                                                    text_color = c_negro, text = "Confirme su nueva contraseña")
+        self.txtconfirmar.place(relx = 0.42, rely = 0.43) 
+
+
+        #Entrada confirmar
+        self.confirmar = CTkEntry(self, font = ('sans rerif', 12), placeholder_text = '', text_color = c_negro,
+                        border_color = c_negro, fg_color = c_blanco, width = 360, height = 40)
+        self.confirmar.place(relx = 0.5, rely = 0.5, anchor = tkinter.CENTER)
         
         #Boton Continuar
         self.bt_continuar = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 15), border_color = c_negro, border_width = 3,
                 hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro)
         self.bt_continuar.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
-perfil = perfil()
-perfil.mainloop()
+nuevaContrasenia = nuevaContrasenia()
+
+def mostrarNuevaContrasenia():
+        nuevaContrasenia.mainloop()
+        
+mostrarNuevaContrasenia()

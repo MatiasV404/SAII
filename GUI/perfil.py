@@ -61,4 +61,8 @@ class perfil(customtkinter.CTk):
         
 
 perfil = perfil()
-perfil.mainloop()
+
+def mostrarPerfil():
+        perfil.mainloop()
+        
+mostrarPerfil()

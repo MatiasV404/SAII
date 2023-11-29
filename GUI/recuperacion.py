@@ -4,7 +4,7 @@ import customtkinter
 from customtkinter import *
 import tkinter
 
-class perfil(customtkinter.CTk):
+class recuperacion(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
@@ -59,5 +59,9 @@ class perfil(customtkinter.CTk):
                 hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro)
         self.bt_continuar.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
-perfil = perfil()
-perfil.mainloop()
+recuperacion = recuperacion()
+
+def mostrarRecuperacion():
+        recuperacion.mainloop()
+
+mostrarRecuperacion()

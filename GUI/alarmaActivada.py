@@ -49,4 +49,5 @@ alarmaActivada = alarmaActivada()
 
 def mostarAlarmaActivada():
         alarmaActivada.mainloop()
+        
 mostarAlarmaActivada()

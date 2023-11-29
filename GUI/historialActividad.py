@@ -72,4 +72,5 @@ historialActividad = historialActividad()
 
 def mostrarHistorialActividad():
     historialActividad.mainloop()
+
 mostrarHistorialActividad()
