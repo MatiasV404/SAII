@@ -5,7 +5,7 @@ from customtkinter import *
 import tkinter
 from tkinter import PhotoImage
 
-class historial(customtkinter.CTk):
+class contactosEmergencia(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
@@ -46,9 +46,9 @@ class historial(customtkinter.CTk):
                 hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
-        #Tabla historial de actividad
-        self.tab_historial_actividad = customtkinter.CTkTabview(self, width = 550, height = 450, border_width = 2, fg_color = c_blanco)
-        self.tab_historial_actividad.place(relx = 0.5, rely = 0.3)
+        #Tabla Contactos de emergencia
+        self.tab_contactos_emergencia = customtkinter.CTkTabview(self, width = 550, height = 450, border_width = 2, fg_color = c_blanco)
+        self.tab_contactos_emergencia.place(relx = 0.5, rely = 0.3)
 
         #Boton Eliminar contacto
         self.bt_eliminar_contacto = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
@@ -69,13 +69,9 @@ class historial(customtkinter.CTk):
         self.correo_electronico = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
                                                     text_color = c_negro, text = "Ingreso el correo electrónico")
         self.correo_electronico.place(relx = 0.05, rely = 0.43) 
-        '''
-        #Scrollbar Tabla hisotorial de actividad
-        self.
-        '''
 
-historial = historial()
+contactosEmergencia = contactosEmergencia()
 
-def mostrarHistorial():
-        historial.mainloop()
-mostrarHistorial()
+def mostrarContactosEmergencia():
+        contactosEmergencia.mainloop()
+mostrarContactosEmergencia()

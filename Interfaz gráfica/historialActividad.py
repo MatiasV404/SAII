@@ -41,6 +41,21 @@ class historialActividad(customtkinter.CTk):
         self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
         self.signo_exclamacion.place(relx = 0.1, rely = 0.1, anchor = tkinter.NE)
 
+        #Boton Volver
+        self.bt_volver = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 3,
+                hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro)
+        self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
+
+        #Tabla historial de actividad
+        self.tab_historial_actividad = customtkinter.CTkTabview(self, width = 1000, height = 450, border_width = 2, fg_color = c_blanco)
+        self.tab_historial_actividad.place(relx = 0.1, rely = 0.3)
+
+        '''
+        #Scrollbar Tabla hisotorial de actividad
+        self.
+        '''
+
+
 historialActividad = historialActividad()
 
 def mostrarHistorialActividad():
