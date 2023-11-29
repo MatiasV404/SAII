@@ -1,4 +1,4 @@
 class LogoutCommand():
     def execute(self):
-        # Lógica para iniciar sesión
+        # Lógica para cerrar sesión
         pass

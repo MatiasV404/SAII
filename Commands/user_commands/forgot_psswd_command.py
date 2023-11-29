@@ -1,4 +1,4 @@
 class ForgotPsswd():
     def execute(self):
-        # Lógica para iniciar sesión
+        # Lógica para recuperar contraseña
         pass

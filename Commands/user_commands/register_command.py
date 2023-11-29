@@ -1,4 +1,4 @@
 class RegisterCommand():
     def execute(self):
-        # Lógica para iniciar sesión
+        # Lógica para registrar usuario
         pass
