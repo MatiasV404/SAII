@@ -54,6 +54,8 @@ class historialActividad(customtkinter.CTk):
         self.tab_historial_actividad = customtkinter.CTkTabview(self, width = 1000, height = 450, border_width = 2, fg_color = c_blanco)
         self.tab_historial_actividad.place(relx = 0.1, rely = 0.3)
 
+        self.scroll = customtkinter.CTkScrollableFrame(self.tab_historial_actividad)
+
         '''
         #Scrollbar Tabla hisotorial de actividad
         self.

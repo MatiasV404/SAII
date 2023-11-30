@@ -12,6 +12,7 @@ configuracion_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 contactosEmergencia_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 histprialActividad_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 calidadAire_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+login_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 class menu(customtkinter.CTk):
         def __init__(self):
@@ -72,12 +73,12 @@ class menu(customtkinter.CTk):
 
                 #Boton Perfil
                 self.bt_perfil = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 3,
-                        hover_color = c_gris, fg_color = c_blanco, text = 'Perfil', height = 20, width = 100, text_color = c_negro)
+                        hover_color = c_gris, fg_color = c_blanco, text = 'Perfil', height = 20, width = 100, text_color = c_negro, command = self.accesoPerfil)
                 self.bt_perfil.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
                 #Boton Cerrar sesión
                 self.bt_cerrar = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 3,
-                        hover_color = c_gris, fg_color = c_blanco, text = 'Cerrar sesión', height = 20, width = 100, text_color = c_negro)
+                        hover_color = c_gris, fg_color = c_blanco, text = 'Cerrar sesión', height = 20, width = 100, text_color = c_negro, command = self.accesoLogin)
                 self.bt_cerrar.place(relx = 0.9, rely = 0.15, anchor = tkinter.CENTER)
 
         #Funcion que accede de Menu a Configuración
@@ -113,6 +114,26 @@ class menu(customtkinter.CTk):
         #Funcion que accede de Menu a Calidad del aire
         def accesoCalidadAire(self):
                 ruta_acceso = os.path.join(configuracion_ruta, "calidadAire.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+        #Funcion que accede de Menu a Perfil
+        def accesoPerfil(self):
+                ruta_acceso = os.path.join(configuracion_ruta, "perfil.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+                        
+        #Funcion que accede de cerrar sesion a login
+        def accesoLogin(self):
+                ruta_acceso = os.path.join(login_ruta, "login.py")
                 self.withdraw()
                 try:
                         subprocess.run([sys.executable, ruta_acceso])
