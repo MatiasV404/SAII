@@ -81,7 +81,7 @@ class nuevaContrasenia(customtkinter.CTk):
                 print(f"Error al ejecutar el otro script: {e}")
 
     def continuar(self):
-        ruta_acceso = os.path.join(menu_ruta, "menu.py")
+        ruta_acceso = os.path.join(menu_ruta, "login.py")
         self.withdraw()
         try:
                 subprocess.run([sys.executable, ruta_acceso])

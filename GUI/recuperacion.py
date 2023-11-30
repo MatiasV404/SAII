@@ -40,7 +40,7 @@ class recuperacion(customtkinter.CTk):
 
         #Boton Volver
         self.bt_volver = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 3,
-                hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro, command = self.accesoMenu)
+                hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro, command = self.login)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
          #Texto Ingreso de nombre de usuario
@@ -58,9 +58,9 @@ class recuperacion(customtkinter.CTk):
         self.bt_continuar = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 15), border_color = c_negro, border_width = 3,
                 hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro, command = self.continuar)
         self.bt_continuar.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
-    #Funcion que retorna al menú
-    def accesoMenu(self):
-        ruta_acceso = os.path.join(menu_ruta, "menu.py")
+    #Funcion que retorna al login
+    def login(self):
+        ruta_acceso = os.path.join(menu_ruta, "login.py")
         self.withdraw()
         try:
                 subprocess.run([sys.executable, ruta_acceso])

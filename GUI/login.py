@@ -55,8 +55,10 @@ class login(customtkinter.CTk):
 
                 #Texto Olvidaste tu contraseña
                 self.texto_olvidaste = customtkinter.CTkLabel(master = self, width=200, height = 25, corner_radius=0, font = ('sans rerif', 12), fg_color = c_blanco,
-                                                        bg_color = c_blanco, text_color = c_azul, text = "¿Olvidaste tu contraseña")
+                                                        bg_color = c_blanco, text_color = c_azul, text = "¿Olvidaste tu contraseña?")
                 self.texto_olvidaste.place(relx = 0.42, rely = 0.8) 
+                self.texto_olvidaste.bind("<Button-1>", command=self.olvidaste_contrasena)
+
 
                 #Logo y posicion
                 self.logo = customtkinter.CTkLabel(self, image = self.logo_llama, text = '', fg_color = c_blanco)
@@ -82,7 +84,7 @@ class login(customtkinter.CTk):
 
                 #Boton registrar usuario
                 self.bt_registrar = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                        hover_color = c_gris, fg_color = c_blanco, text = 'registrar usuario', height = 40, text_color = c_negro)
+                        hover_color = c_gris, fg_color = c_blanco, text = 'Registrar Usuario', height = 40, text_color = c_negro,command=self.registro)
                 self.bt_registrar.place(relx = 0.9, rely = 0.9, anchor = tkinter.CENTER)
 
                 #ComboBox Idioma
@@ -93,6 +95,26 @@ class login(customtkinter.CTk):
         #Funcion que accede a Menu luego de loggearse
         def accesoMenu(self):
                 ruta_acceso = os.path.join(menu_ruta, "menu.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+         #Funcion para redireccionar a la vista de recuperacion
+        def olvidaste_contrasena(self,event):
+                ruta_acceso = os.path.join(menu_ruta, "recuperacion.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+        #Funcion para redireccionar a la vista de registro
+        def registro(self):
+                ruta_acceso = os.path.join(menu_ruta, "registro.py")
                 self.withdraw()
                 try:
                         subprocess.run([sys.executable, ruta_acceso])

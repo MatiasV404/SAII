@@ -93,7 +93,7 @@ class RegistroUsuarioApp(CTk):
 
         # Boton volver
         self.bt_volver = CTkButton(self.frame, font=customtkinter.CTkFont('sans-serif', 12), border_color=c_negro, border_width=2,
-                                   hover_color=c_naranjo, fg_color='transparent', text='Volver', width=100, height=40, text_color=c_negro,  command = self.accesoMenu)
+                                   hover_color=c_naranjo, fg_color='transparent', text='Volver', width=100, height=40, text_color=c_negro,  command = self.login)
         self.bt_volver.place(relx=0.45, rely=0.9, anchor=tk.CENTER)
 
         # Boton registrar
@@ -101,7 +101,17 @@ class RegistroUsuarioApp(CTk):
                                      hover_color=c_naranjo, fg_color='transparent', text='Registrar', width=100, height=40, text_color=c_negro, command = self.accesoMenu)
         self.bt_registrar.place(relx=0.55, rely=0.9, anchor=tk.CENTER)
 
-    #Funcion que retorna al menú
+    #Funcion que retorna al login
+    def login(self):
+        ruta_acceso = os.path.join(menu_ruta, "login.py")
+        self.withdraw()
+        try:
+                subprocess.run([sys.executable, ruta_acceso])
+                self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+        except Exception as e:
+                print(f"Error al ejecutar el otro script: {e}")
+
+    #Funcion que retorna al menu
     def accesoMenu(self):
         ruta_acceso = os.path.join(menu_ruta, "menu.py")
         self.withdraw()
