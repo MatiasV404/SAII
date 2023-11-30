@@ -60,6 +60,7 @@ class historialActividad(customtkinter.CTk):
         #Scrollbar Tabla hisotorial de actividad
         self.
         '''
+    #Funcion que retorna al menú
     def accesoMenu(self):
         ruta_acceso = os.path.join(menu_ruta, "menu.py")
         self.withdraw()

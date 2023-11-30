@@ -74,6 +74,8 @@ class contactosEmergencia(customtkinter.CTk):
                         hover_color = c_gris, fg_color = 'transparent', text = 'Eliminar contacto', height = 40, width = 200, text_color = c_negro, corner_radius = 3)
                 self.bt_eliminar_contacto.place(relx = 0.27, rely = 0.7, anchor = tkinter.CENTER)
 
+
+        #Funcion que retorna al menú
         def accesoMenu(self):
                 ruta_acceso = os.path.join(menu_ruta, "menu.py")
                 self.withdraw()
