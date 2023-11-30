@@ -3,7 +3,8 @@ from PIL import Image
 import customtkinter
 from customtkinter import *
 import tkinter
-
+import tkinter,sys, subprocess
+menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 class nuevaContrasenia(customtkinter.CTk):
     def __init__(self):
         super().__init__()
@@ -40,7 +41,7 @@ class nuevaContrasenia(customtkinter.CTk):
 
         #Boton Volver
         self.bt_volver = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 3,
-                hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro)
+                hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro,command = self.volver)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
          #Texto ingrese
@@ -67,9 +68,26 @@ class nuevaContrasenia(customtkinter.CTk):
         
         #Boton Continuar
         self.bt_continuar = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 15), border_color = c_negro, border_width = 3,
-                hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro, command=self.continuar)
         self.bt_continuar.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
+    def volver(self):
+        ruta_acceso = os.path.join(menu_ruta, "respuesta.py")
+        self.withdraw()
+        try:
+                subprocess.run([sys.executable, ruta_acceso])
+                self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+        except Exception as e:
+                print(f"Error al ejecutar el otro script: {e}")
+
+    def continuar(self):
+        ruta_acceso = os.path.join(menu_ruta, "menu.py")
+        self.withdraw()
+        try:
+                subprocess.run([sys.executable, ruta_acceso])
+                self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+        except Exception as e:
+                print(f"Error al ejecutar el otro script: {e}")
 nuevaContrasenia = nuevaContrasenia()
 
 def mostrarNuevaContrasenia():
