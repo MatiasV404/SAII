@@ -7,8 +7,23 @@ from tkinter import PhotoImage
 import sys
 import subprocess
 
+# Obtiene la ruta del directorio actual
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Obtiene la ruta del directorio del proyecto (un nivel arriba)
+project_dir = os.path.abspath(os.path.join(current_dir, ".."))
+
+# Agrega la ruta del proyecto al sys.path
+sys.path.append(project_dir)
+
+# Ahora puedes importar tu módulo
+from Commands.system_commands.mq135 import SensorCalidadAire
+
 #Rutas de acceso
 menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+
+# Creación del objeto
+sensor_calidad_aire = SensorCalidadAire(20,26,45,28,95,12)
 
 class calidadAire(customtkinter.CTk):
         def __init__(self):
@@ -42,14 +57,14 @@ class calidadAire(customtkinter.CTk):
 
                 #Texto Subtitulo
                 self.texto_subtitulo = customtkinter.CTkLabel(master = self, width=1000, height = 100, corner_radius=0, font = ('sans rerif', 30), fg_color = c_blanco,
-                                                        bg_color = c_blanco, text_color = c_negro, text = "A continuaión se muestran los niveles de concentración de:")
+                                                        bg_color = c_blanco, text_color = c_negro, text = "A continuación se muestran los niveles de concentración de:")
                 self.texto_subtitulo.place(relx = 0.15, rely = 0.25) 
 
                 #Textbox Valor Humo
                 self.textbox_valor_humo = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_humo.place(relx = 0.55, rely = 0.4) 
-                self.textbox_valor_humo.insert("0.0", "   x%" * 1)
+                self.textbox_valor_humo.insert("0.0", f"{sensor_calidad_aire.humo}%")
                 self.textbox_valor_humo.configure(state = DISABLED)
 
                 #Texto Humo
@@ -61,7 +76,7 @@ class calidadAire(customtkinter.CTk):
                 self.textbox_valor_benceno = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_benceno.place(relx = 0.55, rely = 0.47) 
-                self.textbox_valor_benceno.insert("0.0", "   x%" * 1)
+                self.textbox_valor_benceno.insert("0.0", f"{sensor_calidad_aire.benceno}%")
                 self.textbox_valor_benceno.configure(state = DISABLED)
 
                 #Texto Benceno
@@ -73,7 +88,7 @@ class calidadAire(customtkinter.CTk):
                 self.textbox_valor_amoniaco = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_amoniaco.place(relx = 0.55, rely = 0.54) 
-                self.textbox_valor_amoniaco.insert("0.0", "   x%" * 1)
+                self.textbox_valor_amoniaco.insert("0.0", f"{sensor_calidad_aire.nh3}%")
                 self.textbox_valor_amoniaco.configure(state = DISABLED)
 
                 #Texto Amoniaco
@@ -85,7 +100,7 @@ class calidadAire(customtkinter.CTk):
                 self.textbox_valor_dioxido = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_dioxido.place(relx = 0.55, rely = 0.61) 
-                self.textbox_valor_dioxido.insert("0.0", "   x%" * 1)
+                self.textbox_valor_dioxido.insert("0.0", f"{sensor_calidad_aire.co2}%")
                 self.textbox_valor_dioxido.configure(state = DISABLED)
 
                 #Texto Dioxido de Carbono (CO2)
@@ -97,7 +112,7 @@ class calidadAire(customtkinter.CTk):
                 self.textbox_valor_nox = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_nox.place(relx = 0.55, rely = 0.68) 
-                self.textbox_valor_nox.insert("0.0", "   x%" * 1)
+                self.textbox_valor_nox.insert("0.0", f"{sensor_calidad_aire.nox}%")
                 self.textbox_valor_nox.configure(state = DISABLED)
 
                 #Texto NOX
@@ -109,7 +124,7 @@ class calidadAire(customtkinter.CTk):
                 self.textbox_valor_alcohol = customtkinter.CTkTextbox(self, width=80, height = 30, corner_radius=0, font = ('sans rerif', 20), fg_color = c_blanco,
                                                         text_color = c_negro, border_color = c_negro, border_width = 2)
                 self.textbox_valor_alcohol.place(relx = 0.55, rely = 0.75) 
-                self.textbox_valor_alcohol.insert("0.0", "   x%" * 1)
+                self.textbox_valor_alcohol.insert("0.0", f"{sensor_calidad_aire.alcohol}%")
                 self.textbox_valor_alcohol.configure(state = DISABLED)
 
                 #Texto Alcohol
