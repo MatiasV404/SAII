@@ -13,10 +13,10 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Obtiene la ruta del directorio del proyecto (un nivel arriba)
 project_dir = os.path.abspath(os.path.join(current_dir, ".."))
 
-# Agrega la ruta del proyecto al sys.path
+# Agregamos la ruta del proyecto al sys.path
 sys.path.append(project_dir)
 
-# Ahora puedes importar tu módulo
+# Importamos módulo
 from Commands.system_commands.mq135 import sensor_calidad_aire
 
 # Acceder a los atributos usando los getters
