@@ -29,6 +29,7 @@ valor_alcohol = sensor_calidad_aire.get_alcohol()
 
 #Rutas de acceso
 menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
+calidadAire_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
 class calidadAire(customtkinter.CTk):
         def __init__(self):
@@ -146,8 +147,24 @@ class calidadAire(customtkinter.CTk):
                 self.signo_exclamacion = customtkinter.CTkLabel(self, image = self.signo_exclamacion, text = '', fg_color = c_blanco)
                 self.signo_exclamacion.place(relx = 0.1, rely = 0.1, anchor = tkinter.NE)
 
+                #Boton Troll
+                self.bt_troll = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_blanco, hover_color = c_blanco, fg_color = c_blanco, 
+                                          text = '', height = 20, width = 100, text_color = c_blanco, corner_radius = 1, command = self.accesoCalidadAire)
+                self.bt_troll.place(relx = 0.55, rely = 0.85, anchor = tkinter.CENTER)
+
+        #Funcion que retorna a menú
         def accesoMenu(self):
                 ruta_acceso = os.path.join(menu_ruta, "menu.py")
+                self.withdraw()
+                try:
+                        subprocess.run([sys.executable, ruta_acceso])
+                        self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
+                except Exception as e:
+                        print(f"Error al ejecutar el otro script: {e}")
+
+        #Funcion que recarga calidad de aire
+        def accesoCalidadAire(self):
+                ruta_acceso = os.path.join(calidadAire_ruta, "calidadAire.py")
                 self.withdraw()
                 try:
                         subprocess.run([sys.executable, ruta_acceso])
