@@ -32,4 +32,4 @@ class SensorCalidadAire:
         return self.alcohol
     
 # Creación del objeto
-sensor_calidad_aire = SensorCalidadAire(45,26,85,28,95,12)
+sensor_calidad_aire = SensorCalidadAire(4,56,85,28,95,12)
