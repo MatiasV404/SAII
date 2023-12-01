@@ -149,7 +149,7 @@ class calidadAire(customtkinter.CTk):
 
                 #Boton Troll
                 self.bt_troll = CTkButton(self, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_blanco, hover_color = c_blanco, fg_color = c_blanco, 
-                                          text = '', height = 20, width = 100, text_color = c_blanco, corner_radius = 1, command = self.accesoCalidadAire)
+                                          bg_color = c_blanco, text = '', height = 20, width = 100, text_color = c_blanco, corner_radius = 1, command = self.accesoCalidadAire)
                 self.bt_troll.place(relx = 0.55, rely = 0.85, anchor = tkinter.CENTER)
 
         #Funcion que retorna a menú

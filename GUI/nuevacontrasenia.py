@@ -36,7 +36,7 @@ class nuevaContrasenia(customtkinter.CTk):
         
         #Texto Recuperación
         self.texto_recuperacion = customtkinter.CTkLabel(master = self, width=200, height = 100, corner_radius=0, font = ('sans rerif', 60), fg_color = c_blanco,
-                                                      text_color = c_negro, text = "Recuperación cuenta")
+                                                      bg_color = c_blanco, text_color = c_negro, text = "Recuperación cuenta")
         self.texto_recuperacion.place(relx = 0.30, rely = 0.05)
 
         #Boton Volver
@@ -44,9 +44,9 @@ class nuevaContrasenia(customtkinter.CTk):
                 hover_color = c_gris, fg_color = c_blanco, text = 'Volver', height = 20, width = 100, text_color = c_negro,command = self.volver)
         self.bt_volver.place(relx = 0.9, rely = 0.1, anchor = tkinter.CENTER)
 
-         #Texto ingrese
+        #Texto ingrese
         self.texto_primerapass = customtkinter.CTkLabel(master = self, width = 200, height = 30, corner_radius=0, font = ('sans rerif', 15), fg_color = c_blanco,
-                                                    text_color = c_negro, text = "Ingrese su nueva contraseña")
+                                                    bg_color = c_blanco, text_color = c_negro, text = "Ingrese su nueva contraseña")
         self.texto_primerapass.place(relx = 0.42, rely = 0.33) 
 
 
@@ -68,7 +68,8 @@ class nuevaContrasenia(customtkinter.CTk):
         
         #Boton Continuar
         self.bt_continuar = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 15), border_color = c_negro, border_width = 3,
-                hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro, command=self.continuar)
+                hover_color = c_gris, fg_color = 'transparent', text = 'Continuar', height = 30, width = 197, text_color = c_negro, corner_radius = 3,
+                command=self.continuar)
         self.bt_continuar.place(relx = 0.5, rely = 0.6, anchor = tkinter.CENTER)
 
     def volver(self):

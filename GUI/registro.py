@@ -26,7 +26,7 @@ class RegistroUsuarioApp(CTk):
 
         # Creación del marco principal
         self.frame = CTkFrame(self, fg_color=c_blanco)
-        self.frame.grid(column=3, row=3, sticky='nsew', padx=50, pady=50)
+        self.frame.grid(column=3, row=3, sticky='nsew')
 
         self.columnconfigure(3, weight=5)
         self.rowconfigure(3, weight=5)
@@ -62,20 +62,20 @@ class RegistroUsuarioApp(CTk):
         self.etiqueta_respuesta_seguridad.place(relx=0.5, rely=0.75, anchor=tk.CENTER)
 
         # Entrada campos
-        self.user = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='Nombre de usuario',
-                             border_color=c_negro, fg_color=c_blanco, width=220, height=40)
+        self.user = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='',
+                             corner_radius = 3, border_color=c_negro, fg_color=c_blanco, width=220, height=40)
         self.user.place(relx=0.5, rely=0.3, anchor=tk.CENTER)
 
-        self.contrasenia = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='Contraseña',
-                                   border_color=c_negro, fg_color=c_blanco, width=220, height=40)
+        self.contrasenia = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='',
+                                   corner_radius = 3, border_color=c_negro, fg_color=c_blanco, width=220, height=40)
         self.contrasenia.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
-        self.confirmar_contraseña = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='Confirmar contraseña',
-                                             border_color=c_negro, fg_color=c_blanco, width=220, height=40)
+        self.confirmar_contraseña = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='',
+                                             corner_radius = 3, border_color=c_negro, fg_color=c_blanco, width=220, height=40)
         self.confirmar_contraseña.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-        self.email = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='Correo electronico',
-                              border_color=c_negro, fg_color=c_blanco, width=220, height=40)
+        self.email = CTkEntry(self.frame, font=('sans-serif', 12), placeholder_text='',
+                              corner_radius = 3, border_color=c_negro, fg_color=c_blanco, width=220, height=40)
         self.email.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
         # Menú desplegable para la pregunta de seguridad
@@ -87,18 +87,19 @@ class RegistroUsuarioApp(CTk):
 
         # Campo para la respuesta a la pregunta de seguridad
         self.respuesta_seguridad = CTkEntry(self.frame, font=('sans-serif', 12),
-                                           placeholder_text='Respuesta a la pregunta de seguridad',
+                                           placeholder_text='', corner_radius = 3,
                                            border_color=c_negro, fg_color=c_blanco, width=220, height=40)
         self.respuesta_seguridad.place(relx=0.5, rely=0.8, anchor=tk.CENTER)
 
         # Boton volver
         self.bt_volver = CTkButton(self.frame, font=customtkinter.CTkFont('sans-serif', 12), border_color=c_negro, border_width=2,
-                                   hover_color=c_naranjo, fg_color='transparent', text='Volver', width=100, height=40, text_color=c_negro,  command = self.login)
+                                   hover_color=c_naranjo, fg_color='transparent', text='Volver', width=100, height=40, text_color=c_negro, corner_radius = 3, 
+                                   command = self.login)
         self.bt_volver.place(relx=0.45, rely=0.9, anchor=tk.CENTER)
 
         # Boton registrar
         self.bt_registrar = CTkButton(self.frame, font=customtkinter.CTkFont('sans-serif', 12), border_color=c_negro, border_width=2,
-                                     hover_color=c_naranjo, fg_color='transparent', text='Registrar', width=100, height=40, text_color=c_negro, command = self.accesoMenu)
+                                     hover_color=c_naranjo, fg_color='transparent', text='Registrar', width=100, height=40, text_color=c_negro, corner_radius = 3, command = self.accesoMenu)
         self.bt_registrar.place(relx=0.55, rely=0.9, anchor=tk.CENTER)
 
     #Funcion que retorna al login

@@ -40,7 +40,7 @@ class perfil(customtkinter.CTk):
                 
                 #Texto Perfil
                 self.texto_pefil = customtkinter.CTkLabel(master = self, width=200, height = 100, corner_radius=0, font = ('sans rerif', 75), fg_color = c_blanco,
-                                                        text_color = c_negro, text = "Perfil")
+                                                        bg_color = c_blanco, text_color = c_negro, text = "Perfil")
                 self.texto_pefil.place(relx = 0.42, rely = 0.05)
 
                 #Boton Perfil
