@@ -70,6 +70,9 @@ class configuracion(customtkinter.CTk):
                                                         bg_color = c_blanco, text_color = c_negro, text = " Fuente de letras", anchor = CENTER)
                 self.texto_fuente.place(relx = 0.425, rely = 0.475) 
 
+                # Asociar la función de cambio al evento
+                self.cb_fuente_letras.bind("<<ComboboxSelected>>", self.cambiar_fuente)
+
                 #ComboBox Fuente de las letras
                 self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
                                                         text_color = c_negro, dropdown_fg_color = c_blanco,dropdown_hover_color = c_gris, dropdown_text_color = c_negro, width = 55)
@@ -125,8 +128,6 @@ class configuracion(customtkinter.CTk):
                         self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
                 except Exception as e:
                         print(f"Error al ejecutar el otro script: {e}")
-
-configuracion = configuracion()
 
 def mostrarConfiguracion():
         configuracion.mainloop()

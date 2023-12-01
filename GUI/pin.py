@@ -23,7 +23,7 @@ class RegistroPinApp(CTk):
         self.title('PIN')
 
         # Marco principal que cubre el input y los botones
-        self.main_frame = CTkFrame(self, fg_color=c_blanco)
+        self.main_frame = CTkFrame(self, fg_color=c_blanco, bg_color = c_blanco)
         self.main_frame.pack(expand=True, pady=20)
 
         # Marco que contiene el input y el título "PIN"
