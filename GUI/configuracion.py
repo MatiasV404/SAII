@@ -6,7 +6,8 @@ import tkinter
 from tkinter import PhotoImage
 import sys
 import subprocess
-
+import RPi.GPIO as GPIO
+import time 
 #Rutas de acceso
 menu_ruta = os.path.join(os.path.dirname(os.path.realpath(__file__)))
 
@@ -71,7 +72,7 @@ class configuracion(customtkinter.CTk):
                 self.texto_fuente.place(relx = 0.425, rely = 0.475) 
 
                 # Asociar la función de cambio al evento
-                self.cb_fuente_letras.bind("<<ComboboxSelected>>", self.cambiar_fuente)
+    
 
                 #ComboBox Fuente de las letras
                 self.cb_fuente_letras = customtkinter.CTkComboBox(self.frame, values=["5", "10", "15","20"], border_color = c_negro, fg_color = c_blanco, button_color = c_gris_oscuro, button_hover_color = c_gris,
@@ -91,7 +92,7 @@ class configuracion(customtkinter.CTk):
                 
                 #Boton Probar sonido
                 self.bt_probar_sonido = CTkButton(self.frame, font = customtkinter.CTkFont('sans rerif', 12), border_color = c_negro, border_width = 2,
-                        hover_color = c_gris, fg_color = 'transparent', text = 'Probar sonido', height = 20, width = 200, text_color = c_negro, corner_radius = 3)
+                        hover_color = c_gris, fg_color = 'transparent', text = 'Probar sonido', height = 20, width = 200, text_color = c_negro, corner_radius = 3, command = self.activarAlarma)
                 self.bt_probar_sonido.place(relx = 0.15, rely = 0.3, anchor = tkinter.CENTER)
 
                 #Boton Configurar parpadeo LED
@@ -128,7 +129,36 @@ class configuracion(customtkinter.CTk):
                         self.destroy() #deiconfy recupera la ventana que se cerro con withdraw
                 except Exception as e:
                         print(f"Error al ejecutar el otro script: {e}")
+                        
+        def activarAlarma(self):
+                # desactivamos mensajes de error
+                GPIO.setwarnings(False)
+                # guardamos en una variable el pin de salida
+                pin=18
+                # indicamos el uso de  la identificacion BCM para los GPIO
+                GPIO.setmode(GPIO.BCM)
+                # indicamos que el GPIO18 es de salida de corriente
+                GPIO.setup(pin,GPIO.OUT)
+                tiempo=0
+                # bucle que se repite de forma indefinida
+                while (tiempo<1):
+                    # input para introducir el PWM
+                    PWM="99"
+                    # input para introducir los Herzios
+                    HZ="2000"
+                    # pasamos los valores a integer
+                    pwm=int(PWM)
+                    hz=int(HZ)
+                    # enviamos el sonido
+                    pwm_led=GPIO.PWM(pin,hz)
+                    pwm_led.start(pwm)
+                    time.sleep(2)
+                    tiempo=tiempo+1
+                    pwm_led.stop(pwm)                
+                
 
+
+configuracion=configuracion()
 def mostrarConfiguracion():
         configuracion.mainloop()
         
